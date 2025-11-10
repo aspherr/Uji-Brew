@@ -1,0 +1,40 @@
+import Image from "next/image";
+import { User, ShoppingCart } from 'lucide-react';
+
+const Navbar = () => {
+    let dot_classes = "absolute left-1/2 top-full mt-1 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-black opacity-0 group-hover:opacity-100 duration-500"
+    return (
+        <nav className="relative flex items-center justify-between px-20 h-30 mt-7 shadow-md">
+            <Image src="/logo.svg" width={200} height={200} alt="Uji Brew Logo"/> 
+
+            <ul className="absolute left-1/2 flex -translate-x-1/2 gap-15 font-bold font-lustria text-md">
+                <li className="relative group">
+                    <a href="">Our Story</a>
+                    <span className={dot_classes}></span>
+                </li>
+                
+                <li className="relative group">
+                    <a href="">Products</a>
+                    <span className={dot_classes}></span>
+                </li>
+                
+                <li className="relative group">
+                    <a href="">FAQ</a>
+                    <span className={dot_classes}></span>
+                </li>
+            </ul>
+
+            <div className="flex items-center gap-10">
+                <div className="p-2 rounded-full hover:bg-gray-200 duration-300 transition">
+                    <User />
+                </div>
+
+                <div className="p-2 rounded-full hover:bg-gray-200 duration-300 transition">
+                    <ShoppingCart />
+                </div>
+            </div>
+        </nav>
+  )
+}
+
+export default Navbar
