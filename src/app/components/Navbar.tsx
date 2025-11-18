@@ -2,7 +2,7 @@ import Image from "next/image";
 import { User, ShoppingCart } from 'lucide-react';
 
 const Navbar = () => {
-    let dot_classes = "absolute left-1/2 top-full mt-1 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-black opacity-0 group-hover:opacity-100 duration-500"
+    let dot_classes = "absolute left-1/2 top-full mt-1 h-1.5 w-3.5 -translate-x-1/2 rounded-full bg-green-500 opacity-0 group-hover:opacity-100 duration-500"
     return (
         <nav className="relative flex items-center justify-between px-20 h-30 mt-7">
             <Image src="/logo.svg" width={200} height={200} alt="Uji Brew Logo"/> 

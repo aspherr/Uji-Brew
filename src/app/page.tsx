@@ -13,7 +13,7 @@ export default function Home() {
         <div className="font-sans ml-20">
           <h1 className="font-bold text-5xl leading-tight">Experience the Taste of Authentic Japanese <span className="text-green-500">Matcha</span></h1>
           <p className="mt-1 text-xl text-gray-700">Stone-ground green tea crafted for purity and balance.</p>
-          <button className="mt-6 bg-green-500 text-white font-semibold px-6 py-3 rounded-md hover:bg-green-600 duration-300">
+          <button className="mt-6 bg-green-500 text-white font-semibold px-6 py-3 rounded-md hover:bg-green-600 duration-300 text-md">
             Explore Now
           </button>
         </div>
