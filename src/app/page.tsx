@@ -21,6 +21,17 @@ export default function Home() {
 
         <Image src="/matcha-splash.svg" width={600} height={600} alt="matcha cup splash art"/>
       </div>
+
+      <div className="flex flex-col items-center justify-center font-sans mt-10">
+        <h1 className="font-bold text-4xl">FEATURED MATCHA</h1>
+        <p className="mt-2 text-gray-700 text-xl">
+          Discover our most <span className="underline decoration-green-500 decoration-2 underline-offset-5">popular</span> matcha selections.
+        </p>
+
+        <div className="">
+          
+        </div>
+      </div>
     </div>
   );
 }
