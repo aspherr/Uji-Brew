@@ -54,7 +54,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mt-40">
+      <section className="mt-40 bg-green-100 py-20">
         <div className="flex flex-col items-center justify-center font-sans">
           <h1 className="font-bold text-4xl">FEATURED MATCHA</h1>
           <p className="mt-2 text-gray-700 text-xl">
@@ -86,7 +86,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mt-40 mb-20">
+      <section className="mt-40 mb-20 ">
         <div className="flex flex-col items-center justify-center font-sans">
           <h1 className="font-bold text-4xl">WHAT MAKES OUR MATCHA SPECIAL</h1>
 
@@ -139,7 +139,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mt-40"> 
+      <section className="mt-40 bg-green-100 py-20"> 
         <div className="flex flex-row max-w-4xl mx-auto mt-10 gap-15">
           <div className="relative shrink-0 h-150">
             <Image
