@@ -188,6 +188,35 @@ export default function Home() {
         <Testemonial reviews={reviews}/>
 
       </section>
+
+      <section className="bg-green-100 py-24">
+        <div className="max-w-4xl mx-auto text-center font-sans">
+
+          <h2 className="text-4xl font-bold">
+            Start Your Matcha Ritual
+          </h2>
+
+          <p className="mt-4 text-gray-700 text-lg max-w-2xl mx-auto">
+            Get closer to your brew — perks, flavours, and offers made just for you.
+          </p>
+
+          <div className="flex items-center justify-center gap-3 mt-7">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="px-4 py-3 rounded-md border border-gray-300 w-72 focus:outline-none focus:ring-2 focus:ring-green-400"
+            />
+
+            <Button className="px-8 py-6 text-lg font-semibold bg-green-500 hover:bg-green-600 transition duration-300">
+              Subscribe
+            </Button>
+          </div>
+
+          <p className="mt-4 text-gray-700 text-md max-w-2xl mx-auto leading-relaxed">
+            Join <span className="font-bold italic underline decoration-green-500 decoration-2 underline-offset-5">5000+</span> matcha lovers
+          </p>
+        </div>
+      </section>
     </div>
   );
 }
