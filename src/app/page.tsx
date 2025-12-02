@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import Navbar from "../components/Navbar";
 import Card from "@/components/Card";
 import Testemonial from "@/components/Testemonial";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const reviews = [
@@ -216,6 +217,10 @@ export default function Home() {
             Join <span className="font-bold italic underline decoration-green-500 decoration-2 underline-offset-5">5000+</span> matcha lovers
           </p>
         </div>
+      </section>
+
+      <section>
+        <Footer />
       </section>
     </div>
   );
