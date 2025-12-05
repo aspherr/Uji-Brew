@@ -16,7 +16,7 @@ const Footer = () => {
 
         <div className="flex justify-center">
           <Image
-            src="/logo.svg"
+            src="/global/logo.svg"
             width={150}
             height={150}
             alt="Uji Brew Logo"

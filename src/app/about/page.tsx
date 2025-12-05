@@ -14,7 +14,7 @@ const Page = () => {
 
         <section className="relative w-full h-120">
             <Image
-                src="/banner.jpg"
+                src="/about/banner.jpg"
                 alt="banner image"
                 fill
                 className="object-cover"

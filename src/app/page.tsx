@@ -51,7 +51,7 @@ export default function Home() {
             </Button>
           </div>
 
-          <Image src="/matcha-splash.svg" width={600} height={600} alt="matcha cup splash art"/>
+          <Image src="/home/matcha-splash.svg" width={600} height={600} alt="matcha cup splash art"/>
         </div>
       </section>
 
@@ -67,21 +67,21 @@ export default function Home() {
               name="ICED CLOUD MATCHA LATTE" 
               desc="Smooth ceremonial matcha topped with a light, creamy cloud foam." 
               price="£7.00"
-              image="/featured/item-1.svg"
+              image="/home/featured/item-1.svg"
             />
 
             <Card 
               name="ICED STRAWBERRY MATCHA LATTE" 
               desc="Fresh strawberry sweetness layered with vibrant iced matcha." 
               price="£7.00"
-              image="/featured/item-2.svg"
+              image="/home/featured/item-2.svg"
             />
 
             <Card 
               name="ICED CARAMEL MATCHA LATTE" 
               desc="Rich caramel blended with smooth matcha over refreshing ice." 
               price="£7.00"
-              image="/featured/item-3.svg"
+              image="/home/featured/item-3.svg"
             />
           </div>
         </div>
@@ -144,7 +144,7 @@ export default function Home() {
         <div className="flex flex-row max-w-4xl mx-auto mt-10 gap-15">
           <div className="relative shrink-0 h-150">
             <Image
-              src="/matcha-ritual.jpg"
+              src="/home/matcha-brew.jpg"
               width={400}
               height={800}
               alt="matcha ceremony"
