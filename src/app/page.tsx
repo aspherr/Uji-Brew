@@ -9,6 +9,8 @@ import Card from "@/components/Card";
 import Testemonial from "@/components/Testemonial";
 import Footer from "@/components/Footer";
 
+import Scroll from "@/components/Scroll";
+
 export default function Home() {
   const reviews = [
     { 
@@ -222,6 +224,8 @@ export default function Home() {
       <section>
         <Footer />
       </section>
+
+      <Scroll/>
     </div>
   );
 }

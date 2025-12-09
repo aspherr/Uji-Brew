@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import CircularText from "@/components/ui/CircularText";
 import OrbitImages from "@/components/ui/OrbitImages";
 import { Button } from "@/components/ui/button";
+import Scroll from "@/components/Scroll";
 import Footer from "@/components/Footer";
 
 const Page = () => {
@@ -203,6 +204,7 @@ const Page = () => {
             <Footer />
         </section>
 
+        <Scroll/>
     </div>
   )
 }
