@@ -22,7 +22,7 @@ const Scroll = () => {
         <div className={`fixed bottom-10 right-10 transition-opacity duration-300 ${showGoTop ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
             <Button onClick={handleScrollUp}
                 className="flex items-center justify-center w-12 h-12 rounded-full bg-green-400 hover:bg-green-600 transition">
-                <ChevronUp className="text-black drop-shadow w-8! h-8!" />
+                <ChevronUp className="text-zinc-700 drop-shadow w-8! h-8!" />
             </Button>
         </div>
     )
