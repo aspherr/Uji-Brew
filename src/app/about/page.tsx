@@ -115,7 +115,6 @@ const Page = () => {
                 </div>
                 </div>
 
-                {/* Image */}
                 <div className="relative w-95 h-95 mx-auto">
                     <Image
                         src="/about/matcha-whisk.jpg"
