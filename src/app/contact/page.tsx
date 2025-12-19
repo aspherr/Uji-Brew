@@ -6,6 +6,7 @@ import { useState } from "react"
 
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
+import { Smile } from 'lucide-react';
 
 const Page = () => {
   const [name, setName] = useState("")
@@ -62,7 +63,7 @@ const Page = () => {
 
           <div className="relative">
             <Image
-              src="/about/fields.jpg"
+              src="/contact/banner.jpg"
               alt="matcha fields"
               fill
               className="object-cover"
@@ -70,7 +71,8 @@ const Page = () => {
 
             <div className="absolute inset-0 bg-black/30" />
 
-            <div className="absolute inset-0 flex items-center justify-center text-white text-center px-6">
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-6">
+              <Smile className="mb-4 w-10 h-10" />
               <div>
                 <h2 className="text-3xl font-bold">Get in Touch</h2>
                 <p className="mt-3 text-sm">
