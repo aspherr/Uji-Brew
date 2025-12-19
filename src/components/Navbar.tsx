@@ -17,12 +17,12 @@ const Navbar = () => {
                 </li>
                 
                 <li className="relative group">
-                    <a href="">Products</a>
+                    <Link href="">Products</Link>
                     <span className={dot_classes}></span>
                 </li>
                 
                 <li className="relative group">
-                    <a href="">Contact</a>
+                    <Link href="/contact">Contact</Link>
                     <span className={dot_classes}></span>
                 </li>
             </ul>
