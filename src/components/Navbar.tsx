@@ -17,7 +17,7 @@ const Navbar = () => {
                 </li>
                 
                 <li className="relative group">
-                    <Link href="">Products</Link>
+                    <Link href="/products">Products</Link>
                     <span className={dot_classes}></span>
                 </li>
                 
