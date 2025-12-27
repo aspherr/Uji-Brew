@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from 'next/link';
+
 import { User, ShoppingCart } from 'lucide-react';
 
 const Navbar = () => {
@@ -29,7 +30,8 @@ const Navbar = () => {
 
             <div className="flex items-center gap-10">
                 <div className="p-2 rounded-full hover:bg-green-200 duration-300 transition">
-                    <User />
+                    
+                    <Link href={"/auth/login"}><User/></Link>
                 </div>
 
                 <div className="p-2 rounded-full hover:bg-green-200 duration-300 transition">

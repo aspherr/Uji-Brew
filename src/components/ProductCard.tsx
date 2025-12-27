@@ -30,14 +30,9 @@ import { Check, Plus } from 'lucide-react';
             </h3>
 
             <div className="flex items-center justify-center gap-3">
-                <div className="size-7 min-w-7 min-h-7 rounded-full bg-green-300 hover:bg-green-400 transition-all duration-300 flex items-center justify-center shrink-0 overflow-hidden">
-                    <Check className="w-3.5 h-3.5" />
-                </div>
-
                 <button
                     type="button"
-                    className="size-7 min-w-7 min-h-7 rounded-full bg-green-300 hover:bg-green-400 transition-all duration-300 flex items-center justify-center shrink-0 overflow-hidden p-0"
-                >
+                    className="size-7 min-w-7 min-h-7 rounded-full bg-green-300 hover:bg-green-400 transition-all duration-300 flex items-center justify-center shrink-0 overflow-hidden p-0">
                     <Plus className="w-3.5 h-3.5" />
                 </button>
             </div>
