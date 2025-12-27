@@ -8,8 +8,10 @@ import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 
 const Page = () => {
+  const [fullName, setFullName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState("")
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -32,13 +34,26 @@ const Page = () => {
             <Separator className="my-5" />
 
             <div className="mb-6 text-center">
-              <h1 className="text-2xl font-semibold text-gray-900">Welcome back</h1>
+              <h1 className="text-2xl font-semibold text-gray-900">Create your account</h1>
               <p className="mt-2 text-sm text-gray-500">
-                Sign in to your account
+                Register to get started
               </p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-5">
+              <div>
+                <label className="mb-2 block text-sm font-medium text-gray-700">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Jane Doe"
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                  className="w-full rounded-md border px-4 py-3 outline-none transition focus:ring-2 focus:ring-green-400"
+                />
+              </div>
+
               <div>
                 <label className="mb-2 block text-sm font-medium text-gray-700">
                   Email
@@ -58,39 +73,58 @@ const Page = () => {
                 </label>
                 <input
                   type="password"
-                  placeholder="Enter your password"
+                  placeholder="Create a password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="w-full rounded-md border px-4 py-3 outline-none transition focus:ring-2 focus:ring-green-400"
                 />
               </div>
 
-              <div className="flex items-center justify-between text-sm">
-                <label className="flex items-center gap-2 text-gray-600">
-                  <input type="checkbox" className="accent-green-500" />
-                  Remember me
+              <div>
+                <label className="mb-2 block text-sm font-medium text-gray-700">
+                  Confirm Password
                 </label>
+                <input
+                  type="password"
+                  placeholder="Confirm your password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  className="w-full rounded-md border px-4 py-3 outline-none transition focus:ring-2 focus:ring-green-400"
+                />
+              </div>
 
-                <Link
-                  href="/forgot-password"
-                  className="text-green-600 hover:text-green-700 hover:underline"
-                >
-                  Forgot password?
-                </Link>
+              <div className="flex items-start gap-2 text-sm text-gray-600">
+                <input type="checkbox" className="mt-1 accent-green-500" />
+                <span>
+                  I agree to the{" "}
+                  <Link
+                    href="/terms"
+                    className="text-green-600 hover:text-green-700 hover:underline"
+                  >
+                    Terms of Service
+                  </Link>{" "}
+                  and{" "}
+                  <Link
+                    href="/privacy"
+                    className="text-green-600 hover:text-green-700 hover:underline"
+                  >
+                    Privacy Policy
+                  </Link>
+                </span>
               </div>
 
               <Button className="w-full py-5 bg-green-500 hover:bg-green-600 text-md">
-                Sign In
+                Create Account
               </Button>
             </form>
 
             <p className="mt-6 text-center text-sm text-gray-500">
-              Don&apos;t have an account?{" "}
+              Already have an account?{" "}
               <Link
-                href="/auth/register"
+                href="/auth/login"
                 className="font-medium text-green-600 hover:text-green-700 hover:underline"
               >
-                Sign up
+                Sign in
               </Link>
             </p>
           </div>
