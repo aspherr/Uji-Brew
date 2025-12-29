@@ -15,17 +15,6 @@ enum OrderStatus {
   CANCELLED
 }
 
-model User {
-  id        String   @id @default(uuid())
-  email     String   @unique
-  name      String?
-  password  String
-  createdAt DateTime @default(now())
-
-  orders    Order[]
-  addresses Address[]
-}
-
 model Product {
   id          String   @id @default(uuid())
   name        String
@@ -40,15 +29,16 @@ model Product {
 }
 
 model Order {
-  id        String      @id @default(uuid())
-  userId    String
-  total     Int
-  status    OrderStatus @default(PENDING)
-  createdAt DateTime    @default(now())
+  id         String      @id @default(uuid())
+  authUserId String      @db.Uuid
+  total      Int
+  status     OrderStatus @default(PENDING)
+  createdAt  DateTime    @default(now())
 
-  user     User        @relation(fields: [userId], references: [id])
   items    OrderItem[]
   payments Payment[]
+
+  @@index([authUserId])
 }
 
 model OrderItem {
@@ -58,7 +48,7 @@ model OrderItem {
   quantity  Int
   price     Int
 
-  order   Order   @relation(fields: [orderId], references: [id])
+  order   Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
   product Product @relation(fields: [productId], references: [id])
 }
 
@@ -70,17 +60,17 @@ model Payment {
   provider  String
   createdAt DateTime @default(now())
 
-  order Order @relation(fields: [orderId], references: [id])
+  order Order @relation(fields: [orderId], references: [id], onDelete: Cascade)
 }
 
 model Address {
-  id       String  @id @default(uuid())
-  userId   String
-  line1    String
-  line2    String?
-  city     String
-  postcode String
-  country  String
+  id         String @id @default(uuid())
+  authUserId String @db.Uuid
+  line1      String
+  line2      String?
+  city       String
+  postcode   String
+  country    String
 
-  user User @relation(fields: [userId], references: [id])
+  @@index([authUserId])
 }

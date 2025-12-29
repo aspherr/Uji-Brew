@@ -3,17 +3,50 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
+import { supabase } from "@/lib/supabase"
 
 const Page = () => {
+  const router = useRouter()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [loading, setLoading] = useState(false)
+  const [errorMessage, setErrorMessage] = useState("")
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-  }
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault()
+
+      if (loading) return
+
+      setErrorMessage("")
+
+      try {
+        setLoading(true)
+
+        const { data, error } = await supabase.auth.signInWithPassword({
+          email: email.trim(),
+          password,
+        })
+
+        console.log("signin data:", data)
+        console.log("signin error:", error)
+
+        if (error) {
+          setErrorMessage(error.message)
+          return
+        }
+
+        router.push("/")
+        router.refresh()
+      } catch (err) {
+        setErrorMessage("Something went wrong. Please try again.")
+      } finally {
+        setLoading(false)
+      }
+    }
 
   return (
     <div className="flex items-center justify-center w-full min-h-screen bg-green-300 px-4 font-sans">

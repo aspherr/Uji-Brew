@@ -6,6 +6,7 @@ import { useState } from "react"
 
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
+import { supabase } from "@/lib/supabase"
 
 const Page = () => {
   const [fullName, setFullName] = useState("")
@@ -13,10 +14,33 @@ const Page = () => {
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-  }
+    const { data, error } = await supabase.auth.signUp({
+      email: email.trim(),
+      password,
+      options: {
+        data: {
+          full_name: fullName.trim(),
+        },
+      },
+    })
 
+    if (data.user) {
+      await fetch("/api/profile/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId: data.user.id,
+          email: data.user.email,
+          fullName: fullName.trim(),
+        }),
+      })
+    }
+  }
+  
   return (
     <div className="flex items-center justify-center w-full min-h-screen bg-green-300 px-4 font-sans">
       <section className="bg-white rounded-xl w-full max-w-lg shadow-lg overflow-hidden">
@@ -133,5 +157,6 @@ const Page = () => {
     </div>
   )
 }
+
 
 export default Page
