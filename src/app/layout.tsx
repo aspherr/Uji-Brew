@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Lustria,  Archivo_Black} from "next/font/google";
+import { CartProvider } from "@/components/providers/CartProvider"
 
 import "./globals.css";
 
@@ -39,7 +40,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${lustria.variable} ${archivo_black.variable} antialiased`}
       >
-        {children}
+        <CartProvider initialCount={0}>
+          {children}
+        </CartProvider>
       </body>
     </html>
   );

@@ -1,6 +1,10 @@
+"use client"
+
 import Image from "next/image"
 
-import { Check, Plus } from 'lucide-react';
+import { Plus } from 'lucide-react';
+import { useCart } from "@/components/providers/CartProvider"
+import { addToCart } from "@/app/actions/basket";
 
   type Product = {
     id: string
@@ -13,6 +17,8 @@ import { Check, Plus } from 'lucide-react';
   }
 
   export default function ProductCard({ product }: { product: Product }) {
+    const { incrementBasket } = useCart()
+
     return (
     <div className="w-80 h-120 bg-white shadow-md rounded-xl border-2 flex flex-col">
         <div className="w-full h-3/5 rounded-t-xl flex items-center justify-center">
@@ -30,13 +36,24 @@ import { Check, Plus } from 'lucide-react';
             </h3>
 
             <div className="flex items-center justify-center gap-3">
+                <form
+                action={async () => {
+                    await addToCart(product.id)
+                    incrementBasket(1)
+                }}
+                >
                 <button
-                    type="button"
-                    className="size-7 min-w-7 min-h-7 rounded-full bg-green-300 hover:bg-green-400 transition-all duration-300 flex items-center justify-center shrink-0 overflow-hidden p-0">
+                    type="submit"
+                    className="size-7 min-w-7 min-h-7 rounded-full bg-green-300 hover:bg-green-400 transition-all duration-300 flex items-center justify-center shrink-0 overflow-hidden p-0"
+                >
                     <Plus className="w-3.5 h-3.5" />
                 </button>
+                </form>
             </div>
         </div>
     </div>
     );
   }
+
+
+         
