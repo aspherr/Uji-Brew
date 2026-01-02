@@ -1,4 +1,3 @@
-"use client"
 import Image from "next/image";
 
 import Navbar from "@/components/Navbar";
@@ -7,6 +6,7 @@ import OrbitImages from "@/components/ui/OrbitImages";
 import { Button } from "@/components/ui/button";
 import Scroll from "@/components/Scroll";
 import Footer from "@/components/Footer";
+import NavbarShell from "@/components/NavbarShell";
 
 const Page = () => {
     const images = [
@@ -21,7 +21,7 @@ const Page = () => {
     <div className="w-full min-h-screen font-sans">
         <section>
             <div className="mx-auto max-w-8xl -my-7 mb-0.5">
-                <Navbar/>
+                <NavbarShell />
             </div>
         </section>
 

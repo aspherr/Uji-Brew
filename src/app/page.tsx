@@ -10,6 +10,7 @@ import Testemonial from "@/components/Testemonial";
 import Footer from "@/components/Footer";
 
 import Scroll from "@/components/Scroll";
+import NavbarShell from "@/components/NavbarShell";
 
 export default function Home() {
   const reviews = [
@@ -39,7 +40,7 @@ export default function Home() {
     <div className="w-full min-h-screen">
       <section>
         <div className="mx-auto max-w-8xl -my-7 mb-0.5">
-          <Navbar/>
+          <NavbarShell />
         </div>
       </section>
 

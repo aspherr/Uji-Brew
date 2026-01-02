@@ -5,6 +5,7 @@ import { prisma } from "@/lib/prisma"
 import { createClient } from "@/lib/supabase/server"
 import Image from "next/image"
 import Link from "next/link"
+import NavbarShell from "@/components/NavbarShell"
 
 const Page = async () => {
   const supabase = await createClient()
@@ -36,7 +37,7 @@ const Page = async () => {
     <div className="w-full min-h-screen font-sans">
       <section>
         <div className="mx-auto max-w-8xl -my-7 mb-0.5">
-          <Navbar />
+          <NavbarShell />
         </div>
       </section>
 

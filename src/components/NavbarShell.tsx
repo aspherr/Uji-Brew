@@ -1,11 +1,8 @@
+import Navbar from "@/components/Navbar"
 import { prisma } from "@/lib/prisma"
 import { createClient } from "@/lib/supabase/server"
 
-const AppProviders = async ({
-  children,
-}: {
-  children: React.ReactNode
-}) => {
+const NavbarShell = async () => {
   const supabase = await createClient()
 
   const {
@@ -22,12 +19,7 @@ const AppProviders = async ({
   const basketCount =
     cart?.items.reduce((sum, item) => sum + item.quantity, 0) ?? 0
 
-  return (
-    <>
-      {/* you can pass basketCount down later */}
-      {children}
-    </>
-  )
+  return <Navbar basketCount={basketCount} />
 }
 
-export default AppProviders
+export default NavbarShell

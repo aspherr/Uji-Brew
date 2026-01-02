@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { User, ShoppingCart } from "lucide-react"
 import {
   DropdownMenu,
@@ -15,7 +16,6 @@ import {
 
 import { createClient } from "@/lib/supabase/client"
 import { useEffect, useState } from "react"
-import { useCart } from "@/components/providers/CartProvider"
 
 type AuthUser = {
   id: string
@@ -25,11 +25,11 @@ type AuthUser = {
   }
 }
 
-const Navbar = () => {
+const Navbar = ({ basketCount = 0 }: { basketCount?: number }) => {
   const supabase = createClient()
   const [user, setUser] = useState<AuthUser | null>(null)
   const firstName = user?.user_metadata?.full_name?.trim().split(" ")[0]
-  const { basketCount } = useCart()
+  const router = useRouter()
 
   useEffect(() => {
     const getUser = async () => {
@@ -39,8 +39,14 @@ const Navbar = () => {
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
+    } = supabase.auth.onAuthStateChange(async (_event, session) => {
       setUser(session?.user ?? null)
+
+      if (session?.user) {
+        const res = await fetch("/api/cart/count")
+        const data = await res.json()
+      } else {
+      }
     })
 
     getUser()
@@ -101,6 +107,7 @@ const Navbar = () => {
                   <DropdownMenuItem
                     onClick={async () => {
                       await supabase.auth.signOut()
+                      router.push("/")
                     }}
                   >
                     Sign Out
