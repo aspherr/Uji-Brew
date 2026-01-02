@@ -1,11 +1,13 @@
-import Navbar from "@/components/Navbar"
+import NavbarShell from "@/components/NavbarShell"
 import Footer from "@/components/Footer"
 import { Button } from "@/components/ui/button"
 import { prisma } from "@/lib/prisma"
 import { createClient } from "@/lib/supabase/server"
 import Image from "next/image"
 import Link from "next/link"
-import NavbarShell from "@/components/NavbarShell"
+import { Trash2 } from "lucide-react"
+import QuantityControls from "@/components/QuantityControls"
+import { removeCartItem } from "../actions/basket"
 
 const Page = async () => {
   const supabase = await createClient()
@@ -14,18 +16,21 @@ const Page = async () => {
     data: { user },
   } = await supabase.auth.getUser()
 
-  const cart = user
-    ? await prisma.cart.findUnique({
-        where: { authUserId: user.id },
-        include: {
-          items: {
-            include: {
-              product: true,
-            },
+const cart = user
+  ? await prisma.cart.findUnique({
+      where: { authUserId: user.id },
+      include: {
+        items: {
+          orderBy: {
+            createdAt: "asc",
+          },
+          include: {
+            product: true,
           },
         },
-      })
-    : null
+      },
+    })
+  : null
 
   const total =
     cart?.items.reduce(
@@ -87,11 +92,11 @@ const Page = async () => {
           ) : (
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-10">
               <div className="space-y-5">
-                {cart.items.map((item) => (
-                  <div
-                    key={item.id}
-                    className="flex items-center justify-between gap-6 rounded-2xl border bg-white p-5 shadow-sm"
-                  >
+                  {cart.items.map((item) => (
+                    <div
+                      key={item.id}
+                      className="flex items-center justify-between gap-6 rounded-2xl border bg-white p-5 shadow-sm"
+                    >
                     <div className="flex items-center gap-5">
                       <div className="flex h-24 w-24 items-center justify-center rounded-xl bg-green-100 overflow-hidden">
                         {item.product.imageUrl ? (
@@ -116,20 +121,33 @@ const Page = async () => {
                             {item.product.desc}
                           </p>
                         )}
-                        <p className="mt-2 text-sm text-gray-500">
-                          Quantity: <span className="font-medium text-gray-800">{item.quantity}</span>
-                        </p>
+                        <QuantityControls
+                          cartItemId={item.id}
+                          productId={item.product.id}
+                          quantity={item.quantity}
+                        />
                       </div>
                     </div>
 
-                    <div className="text-right shrink-0">
-                      <p className="text-sm text-gray-500">Item Total</p>
-                      <p className="text-lg font-bold text-gray-900">
-                        £{((item.product.price * item.quantity) / 100).toFixed(2)}
-                      </p>
-                      <p className="mt-1 text-sm text-gray-500">
-                        £{(item.product.price / 100).toFixed(2)} each
-                      </p>
+                    <div className="flex items-center gap-6 shrink-0">
+                      <div className="text-right">
+                        <p className="text-sm text-gray-500">Item Total</p>
+                        <p className="text-lg font-bold text-gray-900">
+                          £{((item.product.price * item.quantity) / 100).toFixed(2)}
+                        </p>
+                        <p className="mt-1 text-sm text-gray-500">
+                          £{(item.product.price / 100).toFixed(2)} each
+                        </p>
+                      </div>
+
+                      <form action={removeCartItem.bind(null, item.id)}>
+                        <button
+                          type="submit"
+                          className="flex h-10 w-10 items-center justify-center rounded-full bg-red-50 text-red-500 transition hover:bg-red-100"
+                        >
+                          <Trash2 className="h-4 w-4" />
+                        </button>
+                      </form>
                     </div>
                   </div>
                 ))}
