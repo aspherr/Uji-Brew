@@ -100,7 +100,9 @@ const Navbar = ({ basketCount = 0 }: { basketCount?: number }) => {
               <DropdownMenuContent className="font-sans">
                 <DropdownMenuGroup>
                   <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                  <DropdownMenuItem>Profile</DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/profile">Profile</Link>
+                  </DropdownMenuItem>
                   <DropdownMenuItem>Billing</DropdownMenuItem>
                   <DropdownMenuItem>Address</DropdownMenuItem>
                   <DropdownMenuSeparator />
