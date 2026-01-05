@@ -11,6 +11,7 @@ import Footer from "@/components/Footer";
 
 import Scroll from "@/components/Scroll";
 import NavbarShell from "@/components/NavbarShell";
+import Link from "next/link";
 
 export default function Home() {
   const reviews = [
@@ -49,9 +50,11 @@ export default function Home() {
           <div className="font-sans ml-20">
             <h1 className="font-bold text-5xl leading-tight">Experience the Taste of Authentic Japanese <span className="text-green-500">Matcha</span></h1>
             <p className="mt-1 text-xl text-gray-700">Stone-ground green tea crafted for purity and balance.</p>
-            <Button className="mt-6 p-5 font-semibold text-md bg-green-500 hover:bg-green-600 duration-300">
-              Explore Now
-            </Button>
+            <Link href="/products">
+              <Button className="mt-6 p-5 font-semibold text-md bg-green-500 hover:bg-green-600 duration-300">
+                Explore Now
+              </Button>
+            </Link>
           </div>
 
           <Image src="/home/matcha-splash.svg" width={600} height={600} alt="matcha cup splash art"/>

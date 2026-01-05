@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import Scroll from "@/components/Scroll";
 import Footer from "@/components/Footer";
 import NavbarShell from "@/components/NavbarShell";
+import Link from "next/link";
 
 const Page = () => {
     const images = [
@@ -192,9 +193,11 @@ const Page = () => {
                 </p>
 
                 <div className="flex items-center justify-center mt-7">
-                    <Button className="px-8 py-6 text-lg font-semibold bg-green-500 hover:bg-green-600 transition duration-300">
-                        Explore Now
-                    </Button>
+                    <Link href="/products">
+                        <Button className="px-8 py-6 text-lg font-semibold bg-green-500 hover:bg-green-600 transition duration-300">
+                            Explore Now
+                        </Button>
+                    </Link>
                 </div>
             </div>
         </section>
