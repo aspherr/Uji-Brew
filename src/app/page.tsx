@@ -6,8 +6,32 @@ import { Button } from "@/components/ui/button";
 
 import Navbar from "../components/Navbar";
 import Card from "@/components/Card";
+import Testemonial from "@/components/Testemonial";
 
 export default function Home() {
+  const reviews = [
+    { 
+      text: "The smoothest matcha I’ve ever tasted. The flavour is rich but incredibly balanced.", 
+      name: "Sarah L." 
+    },
+    { 
+      text: "I’ve tried many matcha brands and this one is by far my favourite.", 
+      name: "Min-seo K." 
+    },
+    { 
+      text: "This matcha has become part of my daily routine. The flavour is fresh and clean.", 
+      name: "Emily R." 
+    },
+    { 
+      text: "The quality is amazing. The matcha has such a vibrant colour and smooth flavour — it reminds me of tea ceremonies I experienced in Japan.", 
+      name: "Yuki T." 
+    },
+    { 
+      text: "I switched from coffee to matcha and this one is perfect. It gives me calm energy throughout the day and tastes incredible iced or hot.", 
+      name: "Ayesha K." 
+    }
+  ]
+
   return (
     <div className="w-full min-h-screen">
       <section>
@@ -115,7 +139,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mt-40 mb-20"> 
+      <section className="mt-40"> 
         <div className="flex flex-row max-w-4xl mx-auto mt-10 gap-15">
           <div className="relative shrink-0 h-150">
             <Image
@@ -154,6 +178,15 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </section>
+
+      <section className="mt-40 mb-20">
+        <div className="flex flex-col items-center justify-center font-sans">
+          <h1 className="font-bold text-4xl">What Our Customers Say</h1>
+        </div>
+
+        <Testemonial reviews={reviews}/>
+
       </section>
     </div>
   );
