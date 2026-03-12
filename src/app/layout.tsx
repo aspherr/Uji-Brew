@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { Lustria } from "next/font/google";
+import { Geist, Geist_Mono, Lustria,  Archivo_Black} from "next/font/google";
+
 import "./globals.css";
 
 const geistSans = Geist({
@@ -19,6 +19,11 @@ const lustria = Lustria({
   variable: "--font-lustria",
 });
 
+const archivo_black = Archivo_Black({
+  weight: "400",
+  variable: "--font-archivo",
+});
+
 export const metadata: Metadata = {
   title: "Uji-Brew",
   description: "E-commerce for Japanese tea brand",
@@ -32,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${lustria.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${lustria.variable} ${archivo_black.variable} antialiased`}
       >
         {children}
       </body>

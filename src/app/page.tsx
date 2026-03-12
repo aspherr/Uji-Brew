@@ -1,7 +1,9 @@
 import Image from "next/image";
 
-import Navbar from "../components/Navbar";
 import { Button } from "@/components/ui/button";
+
+import Navbar from "../components/Navbar";
+import Card from "@/components/Card";
 
 export default function Home() {
   return (
@@ -28,8 +30,27 @@ export default function Home() {
           Discover our most <span className="underline decoration-green-500 decoration-2 underline-offset-5">popular</span> matcha selections.
         </p>
 
-        <div className="">
-          
+        <div className="grid grid-cols-3 mt-10 gap-10">
+          <Card 
+            name="ICED CLOUD MATCHA LATTE" 
+            desc="Smooth ceremonial matcha topped with a light, creamy cloud foam." 
+            price="£7.00"
+            image="/featured/item-1.svg"
+          />
+
+          <Card 
+            name="ICED STRAWBERRY MATCHA LATTE" 
+            desc="Fresh strawberry sweetness layered with vibrant iced matcha." 
+            price="£7.00"
+            image="/featured/item-2.svg"
+          />
+
+          <Card 
+            name="ICED CARAMEL MATCHA LATTE" 
+            desc="Rich caramel blended with smooth matcha over refreshing ice." 
+            price="£7.00"
+            image="/featured/item-3.svg"
+          />
         </div>
       </div>
     </div>
